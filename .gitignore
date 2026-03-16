@@ -37,11 +37,7 @@ env/
 *~
 .DS_Store
 
-# Model files (large binary files)
-*.h5
-*.keras
-*.pkl
-*.pickle
+
 
 # Jupyter
 .ipynb_checkpoints/
