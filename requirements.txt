@@ -1,8 +1,11 @@
 pip
 setuptools
 wheel
+gunicorn
+numpy
+opencv-python-headless
+tensorflow-cpu
 numpy==1.24.3
-tensorflow==2.13.0
 Keras==2.13.0
 Flask==2.3.2
 Pillow==10.0.0
