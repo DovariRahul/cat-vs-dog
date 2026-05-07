@@ -16,8 +16,8 @@ The system uses TensorFlow/Keras for deep learning, Flask for web serving, and O
 ```
 cat vs dog-prediction/
 ├── README.md                  # This file
-├── cnn_demo.py               # Training script for the CNN model
-├── cnn_demo2.py              # Flask app for live prediction with webcam
+├── app.py                     # Training script for the CNN model
+├── app.py                     # Flask app for live prediction with webcam
 ├── cnn_model.keras           # Pre-trained model (Keras format)
 ├── cnn_model.h5              # Pre-trained model (HDF5 format)
 ├── zip_cnn_model.py          # Utility script to compress the model
@@ -29,8 +29,8 @@ cat vs dog-prediction/
 
 | File | Purpose |
 |------|---------|
-| `cnn_demo.py` | Training script that builds CNN, applies data augmentation, trains on cat/dog dataset, and saves the model |
-| `cnn_demo2.py` | Flask web application serving live webcam predictions with real-time inference |
+| `app.py` | Training script that builds CNN, applies data augmentation, trains on cat/dog dataset, and saves the model |
+| `app.py` | Flask web application serving live webcam predictions with real-time inference |
 | `cnn_model.keras` | Trained model in Keras format (recommended format) |
 | `cnn_model.h5` | Trained model in HDF5 format (alternative) |
 | `zip_cnn_model.py` | Compresses the model file for easier distribution |
@@ -122,7 +122,7 @@ Place your dataset images in the appropriate folders.
 #### Running Live Prediction with Webcam:
 
 ```bash
-python cnn_demo2.py
+python app.py
 ```
 
 **Steps:**
@@ -147,7 +147,7 @@ python cnn_demo2.py
 
 #### Prerequisites for Training:
 - Download a cat/dog dataset (e.g., from Kaggle or Microsoft)
-- Update the dataset path in `cnn_demo.py` (line 24):
+- Update the dataset path in `app.py` (line 24):
   ```python
   "C:/Users/D.RAHUL/Downloads/datasets"  # Change this path
   ```
@@ -155,7 +155,7 @@ python cnn_demo2.py
 #### Training Steps:
 
 1. **Update Dataset Path:**
-   Open `cnn_demo.py` and modify the dataset path to your location:
+   Open `app.py` and modify the dataset path to your location:
    ```python
    traindata_load = train_data.flow_from_directory(
        "YOUR_DATASET_PATH",  # Replace with your path
@@ -167,7 +167,7 @@ python cnn_demo2.py
 
 2. **Run Training Script:**
    ```bash
-   python cnn_demo.py
+   python app.py
    ```
 
 3. **Monitor Training:**
@@ -256,7 +256,7 @@ The CNN uses:
 cd "cat vs dog-prediction"
 
 # Run the Flask app
-python cnn_demo2.py
+python app.py
 
 # Open browser and go to http://localhost:5000/
 ```
@@ -264,10 +264,10 @@ python cnn_demo2.py
 ### Example 2: Train Model with Custom Dataset
 ```bash
 # Update dataset path in cnn_demo.py
-python cnn_demo.py
+python app.py
 
 # After training completes, test with:
-python cnn_demo2.py
+python app.py
 ```
 
 ### Example 3: Compress Model for Sharing
@@ -342,7 +342,7 @@ class_labels = ["cat", "dog"]  # Modify as needed
 ```
 
 ### Adjust Model Architecture:
-In `cnn_demo.py`, modify the Sequential layers:
+In `app.py`, modify the Sequential layers:
 ```python
 layers.Conv2D(32, (3,3), activation='relu')  # Add/remove layers
 layers.Dropout(0.5)  # Add dropout for regularization
